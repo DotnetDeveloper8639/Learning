@@ -1,0 +1,93 @@
+Microservices are today’s new enterprise development norm for organizations seriously working toward migrating their existing legacy monolithic applications. And this is where many interesting challenges lie, primarily because monolithic applications are generally mission critical to the continued success of the business.
+
+As a result, these migrations must run as smoothly as possible: There is the need to leverage the right strategy to reap the most benefits. In this article, we will discuss eight best practices to migrate the monolithic application using the microservices architectural approach.
+
+An Overview: The Monolithic Application Versus Microservices
+With monolithic architecture, all processes are tightly coupled and run as a single service. This means that if one of the application’s processes experiences a spike in demand, the entire architecture must be scaled.
+
+A monolithic application is built as a single working unit; that is, all components reside in one piece. Each component and its associated components must be present for the code to build, compile, or execute. Adding or improving the monolith application’s features becomes increasingly complex and adds risk for application availability because many dependent and tightly coupled processes increase the impact of a single process failure.
+
+Enter microservices. After bursting onto the scene a few years ago, microservices are continuing to increase in popularity. Nearly 70% of organizations are either using or investigating microservices, with nearly 33% currently using them in production.
+
+A variant of service-oriented architecture (SOA), microservices are a granular architectural and organizational approach to building applications that communicate over well-defined APIs. They are distributed and loosely coupled so changes will not break the entire application.
+
+The benefit to using microservices is that development teams can rapidly build independently deployable new application components to meet changing business needs. Microservices can be written using different framework and programming languages, and they can be deployed as a single service or a group of services.
+
+Microservices architectures make applications easier to scale and faster to develop, enabling innovation and accelerating time-to-market for new features. They also offer increased modularity, making applications easier to develop, test, deploy, change, and maintain.
+
+The figure below demonstrates the difference between monolithic and microservices architecture:
+monolithic and microservices architecture
+
+In the case of the monolithic application, it has all of its functionality in a single process, and it scales by replicating the monolith on multiple servers. With microservices, the architecture includes each element of functionality in a separate service. It can scale by distributing these services across servers, and it replicates as required. Since every microservice is a semi-independent entity with its own must-have lightweight database, separate releases are then allowed.
+
+The 8 Best Practices
+There are several best practices to consider when an organization wants to move ahead with migrating from a monolithic application to that of microservices.
+
+1. Understand the business objectives
+An organization must first ascertain whether their business model requires microservices technology. Assuming that there is a working server with monolithic applications present, it should be determined if a legacy application made up of an ever-growing mountain of code is appropriate to leverage going forward. With microservices, hundreds of services can be managed and maintained.
+
+2. Identify the benefits which will add business value and increase productivity
+For businesses considering a monolith-to-microservices migration, the benefits include:
+
+Shortened IT delivery timelines
+
+Reduction of operational costs
+
+Growth through innovation
+
+Improvement of process efficiency
+
+Accelerated time-to-market
+
+Simplified maintenance
+
+Rapid scalability
+
+High flexibility
+
+Lowered risks
+
+Increased productivity through automation
+
+These benefits, however, can only be leveraged if the architectural style is adopted properly with the right tools and elements. Organizations must establish performance baselines of their current monolithic application and create a data migration plan that considers both the vertical and horizontal scaling for a scalable application architecture.
+
+3. Use a separate database system for each microservice
+A separate database must be kept for each microservice to ensure that any modifications within a microservice’s database does not affect other independent microservices. For instance, changes within the database for production should not affect the delivery database, as each service manages its own database.
+
+Businesses can have different instances of the same database or an entirely different database system. There should be checks at fixed intervals to ensure that the databases are updated and in sync.
+
+4. Automate as much as possible
+For any business, the sooner the work processes are automated, the more rapid the delivery becomes. Automated processes must be reliable and consistent in terms of what they deliver. By embracing infrastructure automation, microservice architecture can help to simplify the complexities of development and operations.
+
+In addition, the automation process is the key to achieve simplification. All modern cloud infrastructure like Azure, AWS, and Google Cloud have paved the way for smarter solutions in a microservice architecture. The orchestration of microservices can be achieved through the following open source automation tools:
+
+A micro-Linux OS such as CoreOS, Atomic, LXD, or Photon
+
+Docker for the container
+
+Swarm or Kubernetes for schedulers
+
+Prometheus for monitoring
+
+5. Cache data to improve performance
+Consider the addition of a distributed cache to return data from local memory cache instead of querying the database to get the data every time users request it. By doing this, the user’s experience in retrieving data will be faster. There are caching frameworks like Redis, Infinispan, and GemFire—all of which provide a performance boost to the application.
+
+6. Choose the appropriate programming language
+Microservices allow developers to utilize different programming languages and frameworks. Teams should think about and discuss the mobile or web development technology stack of the product undergoing development. Teams should utilize the features of REST APIs.
+
+A standard microservices architecture is built using Restful APIs. Every service is linked to other services through an API gateway. The REST API of service, post-production, can be used to invoke the other service through its REST API. Moreover, REST APIs work with standard HTTP protocol. API security standards can also be integrated easily with REST APIs.
+
+7. Understand the mission
+All team members need to have the knowledge and required skills to undertake the migration. Team members should undergo rapid training sessions on any new technology or frameworks. The mantra should be “Learn, Unlearn, and Relearn.”
+
+The migration to microservices requires small teams that work with the agile methodology. If there is one large team of developers, they should be reorganized into several teams that work independently.
+
+The success of the transition largely depends on the developers and the right strategies. The skill sets of the teams also must be at par with the requirements of each service. Organizations ought to build individual teams for each service. Each team should be responsible for their services using a separate build independent of the team building another aspect of the overall application.
+
+8. Effectively monitoring the microservices
+In this type of architecture, a constant monitoring mechanism is required. When high performance is the focus, any glitch or slip-up can lead to migration malfunctioning and loss of profit. Organizations must invest in tools that aid in constant monitoring of the development and maintenance of each service.
+
+Detailed metrics on end-user triggers, API calls, traffic management, and other areas should be obtained. These metrics must then be stored in a central location in the form of comprehensible reports based on raw data. Monitoring microservices thoroughly can allow for constant, speedy changes and delivery.
+
+Conclusion
+The real business value of migrating monolithic applications to microservices is demonstrable. Organizations can focus on their business processes and key aspects like time-to-market, reliability, flexibility, and scalability to realize business value in a planned and organized manner.
