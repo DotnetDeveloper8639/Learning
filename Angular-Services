@@ -1,0 +1,19 @@
+Services in Angular:
+--------------------
+Service is a class, which is a collection properties and methods. which contains reusable logic and data source interactions.
+
+service can be accessble form component and other services
+services doesn't contain presentation logic it only contains business logic
+
+Goals of Service:
+To separate business logic and data access logic from components
+Make component contains code for only supplying the data to the view and respond user actions also call necessary services.
+
+How we can make a service as injectable?
+To add @Injectable decorator
+@Injectable({
+providedIn: "root" -->provide the service locally or globally
+})
+
+what if we use database interaction and business logic in Component?
+If we contain those logics in componet, the component it self havey and difficult to read and maintain. 
