@@ -1,0 +1,101 @@
+Interpolation:
+-------------------------------
+Interpolation is a dynamic data binding in Angular. we will do binding using {{}} - double curley bracess.
+Ex: <h1>{{interpolation variable}}</h1>
+We can achive using interpolation
+Data binding
+Calculation
+Comparisions 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Angular CLI Command:
+--------------------
+Create new application -- ng new <applicaion name>
+Generate new Component -- ng g c <component name>( when you generate new component along with it html file, spec file, .ts file and css file will create defaulty)
+Generate new module -- ng g m <module name>
+Generate new service -- ng g s <service name>
+Generate new directives -- ng g d <directive name>
+Generate Gaurds -- ng g g <gaurd name>
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Components in Angular:
+----------------------
+A component is key feature in Angular. A component is a class that contains temaplate event logic. Where we will use componets to pass the data to templates.
+A componet can call other componet from template. 
+The hierarchy of component at run time the root component can call first and it calls other components based on the requirement.
+
+For every component a sub folder is created in the application
+
+Root Componet-->Root Template --> Child component1 -->Child template1
+                              -->Child componet2 -->Child template2
+
+Component Metada:
+
+@component({
+templateUrl:"apptemplate", --> Tempalte contains html logic and bindings init.
+selector:"democomponent", --> to call component from other component we will use it which it invoked
+styles:["style.css", style2.css]--> To style the template we will css files
+})
+class AppComponent{      
+properties
+methods
+}
+
+The component is available in @agular/core package
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Basic Routing in Angular:
+-------------------------
+Routing is an integral part of angular which allows us to navigate from one page to another page based on the browser location bar. 
+So the user can experience the page changes.
+
+Rote maps an URL to a component.
+It availble in the angular/route package
+
+Basically we will do routing using 
+<base href="/"> Or
+we will create custom routes in app.routing module
+<a routerLink = "dashboard">
+
+const routes: Routes =[
+{path:"path1", component:Component1},
+{path:"path2", component:Component2}
+];
+@NgModule({
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true,
+    // Don't perform initial navigation in iframes
+    initialNavigation: !isIframe ? 'enabled' : 'disabled'
+  })],
+  exports: [RouterModule]
+})
+
+Routes-- Specifies the route table 
+path -- identifies the actual url at the browser location bar
+component-- specifies the which component should load
+<route-outlet></router-outlet>
+
+Modules in Angular:
+-------------------
+Module is collection of components, directives and pipes, which is used organise the components and directives, pipes.
+
+Goals of Modules:
+Consolidate components, directives and pipes unite them into one functionality.
+A module can call other module so that we can some of components, pipes, directives public
+provide services that the other modules can use.
+
+Angular modules are called as ng module, it decorated with @NgModule decorator.
+
+In javascript we a concept module but the difference is JS module is file but Angular module is class the contains components, pipes and directives.
+
+Module Metadata:
+declarations: specifies list thingsthat are part of current module
+export: specifies list of things that are required to export.
+import: list of other modules that are required to import.
+providers: Specifies the list of services that can be used by the components, pipes and directives of current module.
+
+
+
+
+
+
