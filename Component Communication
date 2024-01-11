@@ -1,0 +1,170 @@
+Component Communication in Angular:
+-----------------------------------
+There are different ways to do component communication in Angular
+1) @Input and @Output decorators
+2) Observables
+3) Subjects and Behavioural Subjects
+
+Input and Output Decorators:
+----------------------------
+@Input: We can pass data from parent to child 
+
+Observables:
+------------
+We will use observables to communicate between components
+
+Angular makes use of observables as an interface to handle a variety of common asynchronous operations. 
+· In Angular, Observables are part of the Reactive Extensions for JavaScript (RxJS) library.
+
+· Observables provide support for passing messages between parts of your application.
+
+· Observables are a powerful feature used extensively in reactive programming to handle asynchronous operations and data streams.
+
+· Observables provide a way to subscribe to and receive notifications when new data or events are emitted, enabling you to react to changes in real-time.
+For example:
+-------------
+
+The HTTP module uses observables to handle AJAX requests and responses
+The Router and Forms modules use observables to listen for and respond to user-input events.
+Observables are Unicast.
+//------------------Observables are unicast-----------------
+    //observable
+    let observable = new Observable<number>(ele =>
+      ele.next(Math.random()))
+
+    //first subscriber
+    observable.subscribe(result => {
+      this.first_subscriber_observable = result;
+      console.log(result)
+    })
+
+    //second subscriber
+    observable.subscribe(result => {
+      this.second_subscriber_observable = result;
+      console.log(result)
+    })
+
+    //third subscriber
+    observable.subscribe(result => {
+      this.thrid_subscriber_observable = result;
+      console.log(result)
+    })
+    //--------------------------------------------------------
+
+Subject:
+------------
+Subject is a RXJS subject basic implementation.
+It is a multicast observable. So it does not have any default value. Only it will emit the value when it receives to their sub scribers.
+This is a good option when you need a simple multicast subject without any additional features.
+Subjects are multicast.
+
+//------------------Subjects are multicast-----------------
+    //subject
+var subject = new Subject<int>();
+
+//first subscriber
+    subject.subscribe(result => {
+      this.first_subscriber_subject = result;
+      console.log(result)
+    })
+
+    //second subscriber
+    subject.subscribe(result => {
+      this.second_subscriber_subject = result;
+      console.log(result)
+    })
+
+    //third subscriber
+    subject.subscribe(result => {
+      this.third_subscriber_subject = result;
+      console.log(result)
+    })
+
+    subject.next(Math.random())
+    //--------------------------------------------------------
+
+Behavioural Subject:
+-------------------
+Behavioural subject is like RXJS Subject.
+It will have default value. It will emit it as soon as they subscribe it by using next().
+After emiting default value it behaves like normal subject.
+· This is useful when you want to provide the last known value to new subscribers, such as the current state of an application or the latest data fetched from an API.
+
+Example:
+--------
+var behaviouralSub = new BehaviouralSubject<number>(123);
+behaviouralSub.Subscribe(result{
+Console.log(result);
+});
+behaviorSubject.next(456)
+
+ behaviorSubject.subscribe(ele => {
+      this.second_subscriber_behaviorSubject = ele
+      console.log(`second subscriber ${ele}`)
+    });
+
+ReplaySubject:
+--------------
+· The ReplaySubject is a subject that can buffer and replay a specific number of values to new subscribers.
+
+· When you create a ReplaySubject, you can specify the buffer size, which determines how many previous values should be replayed to new subscribers.
+
+· This is useful when you want to provide a history of values to new subscribers or when you need to cache values for later use.
+
+//---------------Replay subject buffers old values not default one-----------
+
+    const replaySuject = new ReplaySubject(2) //If we we want to show only last 2 buffered value otherwise it will show all
+
+    replaySuject.next(111)
+    replaySuject.next(222)
+    replaySuject.next(333)
+
+    replaySuject.subscribe(e => {
+      console.log(`First Subscriber ${e}`)
+      this.first_subscriber_replaySubject.push(e);
+    })
+
+    //new values show to existing subsriber
+    replaySuject.next(444)
+
+    replaySuject.subscribe(e => {
+      console.log(`Second Subscriber ${e}`)
+      this.second_subscriber_replaySubject.push(e);
+    })
+
+    replaySuject.next(555)
+    //--------------------------------------------------------------------------
+
+AsyncSubject:
+-------------
+· The AsyncSubject is a subject that only emits the last value when it completes.
+
+· It will not emit any values until the subject’s complete() method is called. When completed, it will emit the last value (if any) to subscribers.
+
+· This is useful when you need to wait for an operation to complete before emitting a final value, such as waiting for an HTTP request to finish and emitting the response as a single value.
+
+ //---------------Async subject sends the latest value to subscribers when it's completed-----------
+    const asyncSubject = new AsyncSubject<number>();
+
+    asyncSubject.subscribe(e => 
+      {
+        console.log(`First Subscriber: ${e}`)
+        this.first_subscriber_asyncSubject=e;
+    });
+
+    asyncSubject.next(111);
+    asyncSubject.next(222);
+    asyncSubject.next(333);
+    asyncSubject.next(444);
+
+    asyncSubject.subscribe(e => {
+      console.log(`Second Subscriber: ${e}`)
+      this.second_subscriber_asyncSubject=e;
+    });
+
+    asyncSubject.next(555);
+    asyncSubject.complete();
+
+    //------------------------------------------------------------------------
+
+
