@@ -1,1 +1,55 @@
+Parent to Child Communication:
+------------------------------
+Parent to communication means data flows from parent to child or child to parent.
+
+we can achive this by using below ones
+1)Input and output decorators
+2)View child and View children decorators
+3)Services
+
+Services:
+-----------
+By using services we can flow the data from parent to child.
+Considerations should follow
+create a service and make it available as root like singleton
+
+Ex:
+Parent Component:
+export class OneComponent implements OnInit {
+
+  constructor(private dataSharing: DatasharingService) { }
+
+  ngOnInit(): void {
+  }
+  onChange(value: boolean): void {
+    this.dataSharing.SharedMethod(value);
+  }
+
+}
+
+template:
+<div>
+    <input type="checkbox" (change) = "onChange($any($event).target.checked)"/>
+    <p>Agree that you love pandas?</p>
+</div>
+
+Child Component:
+
+export class TwoComponent implements OnInit {
+
+  constructor(public dataShared: DatasharingService) { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+Template:
+<div>
+    <span *ngIf="dataShared.isShared$| async; else notChecked">You love pandas! Yay!</span>
+    <ng-template #notChecked>
+        <p>No? How could you?!</p>
+      </ng-template>
+</div>
+
 
