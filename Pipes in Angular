@@ -1,1 +1,67 @@
 
+Pipes in Angular:
+-----------------
+Pipe are used in Angular to transform data from one form to another form.
+
+There are built in pipes to transform data in Angular
+Currency
+date
+uppercase
+lowercase
+
+Custome Pipes in Angular:
+-------------------------
+If we don't satisfy with built-in pipes functionality. we also can create custom pipes.
+Implement the PipeTransform interface in your custom pipe class to perform the transformation..
+apply the @Pipe decorator to the cl:ass.
+
+Ex:
+--
+@Pipe({
+  standalone: true,
+  name: 'exponentialStrength'
+})
+export class ExponentialStrengthPipe implements PipeTransform {
+  transform(value: number, exponent = 1): number {
+    return Math.pow(value, exponent);
+  }
+}
+
+pure pipe vs Impure pipes:
+--------------------------
+By default all the pipes are pure pipes.            
+
+When any changes in the object or array, pure pipes will not refresh automatically. In other hand impure pipes will react those changes.
+
+import { PipeTransform, Pipe } from '@angular/core';
+import { User } from './User';
+
+//Pure Pipe
+@Pipe({
+  name: 'filter',
+  pure: true
+})
+export class FilterPipe implements PipeTransform {
+  transform(users: User[], searchTerm: string): User[] {
+    if (!users || !searchTerm) {
+      return users;
+    }
+    return users.filter(user => user.name.toLowerCase()
+      .indexOf(searchTerm.toLowerCase()) !== -1);
+  }
+}
+
+//Im-Pure Pipe
+@Pipe({
+  name: 'filter',
+  pure: false
+})
+export class FilterPipe implements PipeTransform {
+  transform(users: User[], searchTerm: string): User[] {
+    if (!users || !searchTerm) {
+      return users;
+    }
+    return users.filter(user => user.name.toLowerCase()
+      .indexOf(searchTerm.toLowerCase()) !== -1);
+  }
+}
