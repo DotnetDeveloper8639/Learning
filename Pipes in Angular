@@ -65,3 +65,7 @@ export class FilterPipe implements PipeTransform {
       .indexOf(searchTerm.toLowerCase()) !== -1);
   }
 }
+
+Async Pipes:
+----------
+These pipes are used to get the data from observable and show it in the view.
