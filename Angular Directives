@@ -1,1 +1,10 @@
+Angular Directives:
+-------------------
+Angular directives are classes to add extra functionality to the DOM.
 
+we have different types of directives
+1. Component - The component directive comes with template or template URLs that represent something in DOM.
+2.Structural - NgIf, NgSwitch - Changes the structure of DOM
+3.Attribute - NgStyle, NgClass -Changes the appearence of DOM
+
+Note: The Component directive directly associated with the component where as structural and attribute directives are tailored with DOM manupulation.
