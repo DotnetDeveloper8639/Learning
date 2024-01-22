@@ -13,7 +13,7 @@ Custome Pipes in Angular:
 -------------------------
 If we don't satisfy with built-in pipes functionality. we also can create custom pipes.
 Implement the PipeTransform interface in your custom pipe class to perform the transformation..
-apply the @Pipe decorator to the cl:ass.
+apply the @Pipe decorator to the class.
 
 Ex:
 --
