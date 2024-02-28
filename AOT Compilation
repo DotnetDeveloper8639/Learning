@@ -1,1 +1,16 @@
+AOT Compilation:
+--------------------
+In Angular browser directly cannot understand angular templates and type script code. For this AOT compiler compile all the 
+angular code into Javascript at compile time and send it to browser. So that browser can uderstand it. 
+Because of this the rendering of the page will be fast and many of the html template errors can caught before user identify it.
 
+Before Angular8 JIT compiler was the default compiler for Angular.
+After Angular 10 AOT is the default compiler in Angular.
+
+Differences between AOT and JIT
+-------------------------------
+The main difference between them is 
+AOT compile the things at compile time where as JIT do the process at run time.
+
+You can configure AOT in angular.json file.
+aot is true.
