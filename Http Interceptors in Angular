@@ -2,6 +2,9 @@ Http Interceptors in Angular:
 -----------------------------
 Interceptors in Angular are used to handle http request and response and handling errors, logging, authentication.
 
+These interceptors are used to handle the HTTP request and response globally with in the application.
 We will implement it from HttpInterceptor interface.
+
+It will have one method called intercept and it takes two parameters HTTPRequest and HTTPHandler
 
 
