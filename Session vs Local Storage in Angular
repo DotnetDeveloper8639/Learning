@@ -1,1 +1,5 @@
+Session vs Local Storage:
+-------------------------
+Sessions are same as local storage but the main difference is session data will clear when we close the browser or user logged out.
+Where as Local storage data  will gone when we clear it manually.
 
