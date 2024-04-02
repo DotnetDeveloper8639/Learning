@@ -1,3 +1,19 @@
+C:\Users\satish.tandra\LTwoPreactice> ng add @angular/material@14
+ℹ Using package manager: npm
+✔ Package information loaded.
+
+The package @angular/material@14 will be installed and executed.
+Would you like to proceed? Yes
+✔ Packages successfully installed.
+? Choose a prebuilt theme name, or "custom" for a custom theme: Pink/Blue Grey     [ Preview: https://material.angular.io?theme=pink-bluegrey ]
+? Set up global Angular Material typography styles? Yes
+? Include the Angular animations module? Do not include
+UPDATE package.json (1187 bytes)
+✔ Packages installed successfully.
+UPDATE angular.json (3372 bytes)
+UPDATE src/index.html (698 bytes)
+UPDATE src/styles.scss (181 bytes)
+PS C:\Users\satish.tandra\LTwoPreactice> 
 ng update @angular/core@14 @angular/cli@14 --allow-dirty --force
 
 
