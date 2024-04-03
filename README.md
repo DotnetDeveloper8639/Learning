@@ -23,6 +23,12 @@ Module Organization:
 
 •	Scenario: You are developing a large-scale Angular application. 
 Explain how you would organize your modules to ensure a clean and scalable structure. Discuss the role of core and shared modules.
+Ans)
+--Domine Future Module--> The modules that are created for specific functionality ex: Product, customer, Shopping
+--Shared Modules -->
+--Core Modules
+--Route Modules
+--Lazy Loading
 
 Component Interaction:
 
